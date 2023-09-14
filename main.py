@@ -42,7 +42,7 @@ def jacknpoy(credit):
                 else:
                     print("Paper covers rock! You lose.")
                     credit = credit - bet
-            print(f"Your Credit is now {credit}")
+            print(f"Your Credit is now {credit} \n")
             while True:    
                 choice = input("Do you want to try again? Press Y or N: ")
                 if choice == 'N' or choice == 'n':
