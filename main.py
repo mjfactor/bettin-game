@@ -3,46 +3,54 @@ import random
 
 def jacknpoy(credit):
     print("You Played Rock Paper and Scissors")
-    while True:
+    temp = True
+    while temp:
         bet = int(input("\nHow much you want to bet? "))
         if bet > credit:
             print("Not enough credits")
         else:
-            break
-        pick = str(input("1. Rock\n2. Scissors\n3. Paper\nChoose: "))
-        if pick == '1':
-            pick = "Rock"
-        elif pick == '2':
-            pick = "Scissors"
-        elif pick == '3':
-            pick = "Paper"
+            pick = str(input("1. Rock\n2. Scissors\n3. Paper\nChoose: "))
+            if pick == '1':
+                pick = "Rock"
+            elif pick == '2':
+                pick = "Scissors"
+            elif pick == '3':
+                pick = "Paper"
 
-        compChoice = random.choice(["Rock", "Paper", "Scissors"])
-        print(f"\nYou chose {pick.upper()}, computer chose {compChoice.upper()}.\n")
-        if pick == compChoice:
-            print("It a Tie!")
-        elif pick == "Scissors":
-            if compChoice == "Paper":
-                print("Scissors Cut Paper! You win!")
-                credit = credit + bet
-            else:
-                print("Rock smashes scissors! You lose")
-                credit = credit - bet
-        elif pick == "Paper":
-            if compChoice == "Rock":
-                print("Paper covers rock! You win!")
-                credit = credit + bet
-            else:
-                print("Scissors Cut Paper! You lose.")
-                credit = credit - bet
-        elif pick == "Rock":
-            if compChoice == "Scissors":
-                print("Rock smashes scissors! You win!")
-                credit = credit + bet
-            else:
-                print("Paper covers rock! You lose.")
-                credit = credit - bet
-        print(f"Your Credit is now {credit}")
+            compChoice = random.choice(["Rock", "Paper", "Scissors"])
+            print(f"\nYou chose {pick.upper()}, computer chose {compChoice.upper()}.\n")
+            if pick == compChoice:
+                print("It a Tie!")
+            elif pick == "Scissors":
+                if compChoice == "Paper":
+                    print("Scissors Cut Paper! You win!")
+                    credit = credit + bet
+                else:
+                    print("Rock smashes scissors! You lose")
+                    credit = credit - bet
+            elif pick == "Paper":
+                if compChoice == "Rock":
+                    print("Paper covers rock! You win!")
+                    credit = credit + bet
+                else:
+                    print("Scissors Cut Paper! You lose.")
+                    credit = credit - bet
+            elif pick == "Rock":
+                if compChoice == "Scissors":
+                    print("Rock smashes scissors! You win!")
+                    credit = credit + bet
+                else:
+                    print("Paper covers rock! You lose.")
+                    credit = credit - bet
+            print(f"Your Credit is now {credit}")
+            while True:    
+                choice = input("Do you want to try again? Press Y or N: ")
+                if choice == 'N' or choice == 'n':
+                    temp = False
+                    break
+                elif choice == 'Y' or choice == 'y':
+                    break
+            
 
 
 def coinToss():
