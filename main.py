@@ -1,4 +1,27 @@
 import random
+import mysql.connector
+
+
+
+conn = mysql.connector.connect(
+    host="localhost:3306",
+    user="root",
+    password="your_password",
+    database="betgame"
+)
+create_table_query = """
+CREATE TABLE moeny (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    credits INT(8),
+)
+"""
+cursor = conn.cursor()
+cursor.execute(create_table_query)
+
+insert_data_query = "INSERT INTO money (credits) VALUES (%s)"
+user_data = (4)
+cursor.execute(insert_data_query, user_data)
+conn.commit()
 
 
 def jacknpoy(credit):
